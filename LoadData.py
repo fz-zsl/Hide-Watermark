@@ -34,6 +34,7 @@ def load_text(text_path):
     for ch in text:
         text_arr.append(ord(ch))
     # print(text_arr)
+    return text_arr
 
 
 def save_img(img_arr, img_path):

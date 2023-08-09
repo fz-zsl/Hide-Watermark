@@ -41,6 +41,6 @@ def save_img(img_arr, img_path, is_jpg):
     img = Image.fromarray(img_arr)
     img_path = r'output/' + img_path
     if is_jpg:
-        img.save(img_path, format="JPEG", quality=200)
+        img.save(img_path, format="JPEG", quality=100)
     else:
         img.save(img_path)

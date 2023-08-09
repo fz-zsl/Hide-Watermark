@@ -14,11 +14,7 @@ zigzag_ord = [[0, 1, 5, 6, 14, 15, 27, 28],
               [21, 34, 37, 47, 50, 56, 59, 61],
               [35, 36, 48, 49, 57, 58, 62, 63]]
 zigzag_pos = np.zeros((64, 2), dtype=int)
-info_begin = 21 # 13
-info_end = 36 # 28
-info_len = info_end - info_begin
 self_info_len = 11
-eps = 3
 
 
 def calc(val, bit):
@@ -74,6 +70,17 @@ if __name__ == "__main__":
     parser.add_argument('--text', type=str, default='law.txt')  # text_path, long watermark
     parser.add_argument('--output', type=str, default='SP.png')  # output file
     args = parser.parse_args()
+
+    is_jpg = str(args.output).endswith('.jpg') or str(args.output).endswith('.jpeg')
+    if is_jpg:
+        info_begin = 6
+        info_end = 21
+        eps = 5
+    else:
+        info_begin = 21  # 13
+        info_end = 36  # 28
+        eps = 3
+    info_len = info_end - info_begin
 
     # size of image
     img_arr = LoadData.load_image(str(args.img))
@@ -147,4 +154,5 @@ if __name__ == "__main__":
         for y in range(img_res_full_int.shape[1]):
             for c in range(channel):
                 img_res_full_int[x][y][c] = max(min(int(np.rint(img_res_full[x][y][c])), 255), 0)
-    LoadData.save_img(img_res_full_int, str(args.output))
+
+    LoadData.save_img(img_res_full_int, str(args.output), is_jpg)

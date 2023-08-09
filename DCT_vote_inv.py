@@ -14,11 +14,7 @@ zigzag_ord = [[0, 1, 5, 6, 14, 15, 27, 28],
               [21, 34, 37, 47, 50, 56, 59, 61],
               [35, 36, 48, 49, 57, 58, 62, 63]]
 zigzag_pos = np.zeros((64, 2), dtype=int)
-info_begin = 21 # 13
-info_end = 36 # 28
-info_len = info_end - info_begin
 self_info_len = 11
-eps = 3
 
 
 def calc(val):
@@ -59,6 +55,17 @@ if __name__ == "__main__":
     parser = argparse.ArgumentParser()
     parser.add_argument('--img', type=str, default='SP.png')  # image with watermark
     args = parser.parse_args()
+
+    is_jpg = str(args.img).endswith('.jpg') or str(args.img).endswith('.jpeg')
+    if is_jpg:
+        info_begin = 6
+        info_end = 21
+        eps = 5
+    else:
+        info_begin = 21  # 13
+        info_end = 36  # 28
+        eps = 3
+    info_len = info_end - info_begin
 
     # size of image
     img_arr = LoadData.load_image_inv(str(args.img))

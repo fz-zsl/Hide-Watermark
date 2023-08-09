@@ -28,6 +28,10 @@ python DCT_vote_inv.py --img SP.png
 
 Then you can see an identical text file `watermark.txt` in `./output/`.
 
+### Version 1.0.1
+
+Images of `.jpg` and `.jpeg` formats are available now!
+
 ### Version 1.0.0
 
 > Updated on August 9th, 2023. This version uses DCT to hide watermark in picture. Technical details will be shown in the paper.

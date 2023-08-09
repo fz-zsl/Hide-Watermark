@@ -37,7 +37,10 @@ def load_text(text_path):
     return text_arr
 
 
-def save_img(img_arr, img_path):
+def save_img(img_arr, img_path, is_jpg):
     img = Image.fromarray(img_arr)
     img_path = r'output/' + img_path
-    img.save(img_path)
+    if is_jpg:
+        img.save(img_path, format="JPEG", quality=200)
+    else:
+        img.save(img_path)

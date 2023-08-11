@@ -66,9 +66,9 @@ if __name__ == "__main__":
     # set arguments
     parser = argparse.ArgumentParser()
     parser.add_argument('--img', type=str, default='P.jpg')  # img_path
-    parser.add_argument('--logo', type=str, default='深圳杯数学建模挑战赛')  # short watermark, e.g.
+    parser.add_argument('--logo', type=str, default='')  # short watermark, e.g.深圳杯数学建模挑战赛
     parser.add_argument('--text', type=str, default='law.txt')  # text_path, long watermark
-    parser.add_argument('--output', type=str, default='SP.jpg')  # output file
+    parser.add_argument('--output', type=str, default='SP-Task2-0812.png')  # output file
     args = parser.parse_args()
 
     is_jpg = str(args.output).endswith('.jpg') or str(args.output).endswith('.jpeg')

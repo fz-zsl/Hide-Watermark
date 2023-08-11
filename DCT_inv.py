@@ -77,7 +77,7 @@ def vote(num_arr):
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser()
-    parser.add_argument('--img', type=str, default='SP.jpg')  # image with watermark
+    parser.add_argument('--img', type=str, default='SP-Task2-0812.png')  # image with watermark
     args = parser.parse_args()
 
     is_jpg = str(args.img).endswith('.jpg') or str(args.img).endswith('.jpeg')
@@ -154,7 +154,7 @@ if __name__ == "__main__":
             watermark = test_arr
         elif test_prob > good_prob:
             good_prob = test_prob
-        if test_len > 1 and best_prob - good_prob > 2:
+        if test_len > 5 and best_prob - good_prob > 2:
             break
     if watermark.__len__() == 0:
         for uni in text_arr:

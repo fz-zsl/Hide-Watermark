@@ -45,7 +45,7 @@ def blk_dct(img):
 
 def check_utf8(index):
     ch = chr(index)
-    return ch == ch.encode('gbk', 'replace').decode('gbk')
+    return ch == ch.encode('utf-8', 'replace').decode('utf-8')
 
 
 def vote(num_arr):
@@ -167,5 +167,5 @@ if __name__ == "__main__":
     else:
         print('[Note] Watermark is long, please view in \'./output/watermark.txt\'.')
         watermark_str = ''.join(str(ch) for ch in watermark)
-        with open('output/watermark.txt', 'w', encoding='gbk') as file_output:
+        with open('output/watermark.txt', 'w') as file_output:
             print(watermark_str, file=file_output)
